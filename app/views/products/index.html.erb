@@ -1,0 +1,13 @@
+<div class="container">
+  <h1 class="panel panel-default">Hola, <%= @name %></h1>
+  <div class="panel panel-heading">
+      <p class="text-info">Creando appis</p>
+  </div>
+  <% product = Product.all %>
+  <% product.each do |item| %>
+
+  <h2> Nombre: <%= item.name %></h2>
+  <h2> Description: <%= item.description %></h2>
+  <h2> Precio: <%= item.price %></h2>
+<% end %>
+</div>
