@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="table-responsive">
+    <div class="table table-striped">
+      <thead>
+        <tr>
+          <th>USUARIO</th>
+          <th>PRODUCTOS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% a = User.all %>
+        <% a.each do |item| %>
+        <% item.products.each do |name| %>
+        <% item.products.each do |price| %>
+        <tr>
+          <td> <%= name[:name] %> %></td>
+          <td><%= price[:price] %></td>
+        </tr>
+        <% end %>
+
+
+      </tbody>
+      <% end %>
+    </div>
+      <% end %>
+  </div>
+</div>
