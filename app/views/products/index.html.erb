@@ -1,13 +1,26 @@
-<div class="container">
-  <h1 class="panel panel-default">Hola, <%= @name %></h1>
-  <div class="panel panel-heading">
-      <p class="text-info">Creando appis</p>
+<div class="container">  
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>CODE</th>
+          <th>NOMBRE</th>
+          <th>DESCRIPCION</th>
+          <th class="text-center">PRECIO</th>
+          <th class="text-center">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+        <tr>
+          <td> <%= link_to product.id, product_path(product) %></td>
+          <td><%= product.name %> </td>
+          <td><%= product.description %></td>
+          <td class="text-right"> $ <%= product.price.to_i %></td>
+          <th class="text-center"> <%= link_to("Eliminar", "/product/:id")  %> Eliminar </th>
+        </tr>
+        <% end %>
+        </tbody>
+      </table>
   </div>
-  <% product = Product.all %>
-  <% product.each do |item| %>
-
-  <h2> Nombre: <%= item.name %></h2>
-  <h2> Description: <%= item.description %></h2>
-  <h2> Precio: <%= item.price %></h2>
-<% end %>
 </div>

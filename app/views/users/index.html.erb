@@ -1,3 +1,23 @@
-<h1>Hola <%= @name %> </h1>
-<%= user = User.last %>
-<h2> <%= user.products %></h2> 
+<% @title = "Bienvenido" %>
+<div class="container">
+  <h1> <%= @title %> </h1>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>USUARIO</th>
+        <th>CORREO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users = User.all %>
+      <%  users.each do |item| %>
+      <tr >
+        <td><%= item.name %></td>
+        <td><%= item.email %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
