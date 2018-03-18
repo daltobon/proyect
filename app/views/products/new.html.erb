@@ -1,24 +1,3 @@
-<h1>Productos Nuevos </h1>
-<%= form_for @product do |f| %>
-<div class="container">
-  <div class="form-group">
-    <%= f.label "Nombre" %> <br>
-    <%= f.text_field :name, class: 'form-control'%>  
-  </div>
+<h1 class="text-primary text-center"><span class="glyphicon glyphicon-save"></span> Agregar Productos </h1>
 
-  <div class="form-group">
-    <%= f.label "Descripcion" %><br>
-    <%= f.text_area :description, class: 'form-control' %>
-  </div>
-
-  <div class="form-group"">
-  <%= f.label :price %> <br>
-  <%= f.number_field :price, class: 'form-control' %>
-  </div>  
-
-  <div>
-    <%= f.submit class: 'btn btn-success'%>
-   
-  </div>
-</div>
-<% end %>
+<%= render "form" %>

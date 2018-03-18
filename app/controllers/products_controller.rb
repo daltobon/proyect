@@ -18,26 +18,24 @@ class ProductsController < ApplicationController
 
   def edit
   	@product = Product.find(params[:id])
-  	
   end
  
   def update
   	@product = Product.find(params[:id])
   	if @product.update(products_params)
-  		redirect_to product_path(@products), notice: "El producto fue editado"
+  		redirect_to product_path(@product), notice: "El producto fue editado"
   	else 
   	  render :edit, notice: "El producto no puede ser editado" 
   	end
   end
 
-  def delete
-  	@product = Product.find(params[:id])
-  	@product.destroy(products_params)  	
-  		redirect_to product_path(@products)
+  def destroy  
+    product = Product.find(params[:id]).destroy
+    product.destroy
+    redirect_to products_path
   end
 
   def products_params
   	params.require(:product).permit(:name, :description, :price)
-  end
-
+  end  
 end
